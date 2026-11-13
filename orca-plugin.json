@@ -1,0 +1,42 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stablyai/orca/main/docs/schemas/plugins/orca-plugin.v2.schema.json",
+  "manifestVersion": 2,
+  "execution": "trusted-worker",
+  "id": "telegram-connect",
+  "name": "Telegram Connect",
+  "version": "0.0.1",
+  "description": "Talk to agents running as Orca chats through your own Telegram bots: one bot, one unit.",
+  "repository": "https://github.com/kimsanbaev-karim/Orca-Telegram-Connect",
+  "license": "MIT",
+  "engines": {
+    "orca": ">=1.4.256"
+  },
+  "pluginApi": 1,
+  "main": "src/worker.mjs",
+  "contributes": {
+    "panels": [
+      {
+        "id": "connect",
+        "title": "Telegram Connect",
+        "icon": "bot",
+        "entry": "src/panel.tsx",
+        "ui": "components"
+      }
+    ],
+    "statusBarItems": [
+      {
+        "id": "units",
+        "text": "Telegram: 0/0",
+        "icon": "bot"
+      }
+    ]
+  },
+  "capabilities": [
+    {
+      "kind": "storage:own"
+    },
+    {
+      "kind": "secrets:own"
+    }
+  ]
+}
